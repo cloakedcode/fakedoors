@@ -1,0 +1,100 @@
+<html>
+<head>
+    <meta charset="utf-8" /> 
+    <meta name="description" content="An homage to Rick and Morty. Author: github.com/cloakedcode" />
+
+    <title>Fake Doors - Come on down</title>
+
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .door {
+            width: 300px;
+            height: 470px;
+            margin: 25px 0px 0px 8px;
+        }
+
+        #wall {
+            background-color: #C8F3EF;
+            border-bottom: 4px solid #000;
+        }
+
+        #secretdoors {
+            display: none;
+        }
+
+        @media (min-width: 500px) {
+            .door {
+                margin-right: 25px;
+            }
+        }
+    */
+    </style>
+</head>
+
+<body>
+    <div id='secretdoors'>
+        <img class='door' onclick='mmph()' src='bluedoor.png'>
+        <img class='door' onclick='mmph()' src='bluewooddoor.png'>
+        <img class='door' onclick='mmph()' src='browndoor.png'>
+        <img class='door' onclick='mmph()' src='brownglassdoor.png'>
+        <img class='door' onclick='mmph()' src='brownwooddoor.png'>
+        <img class='door' onclick='mmph()' src='graydoor.png'>
+        <img class='door' onclick='mmph()' src='grayglassdoor.png'>
+        <img class='door' onclick='mmph()' src='greendoor.png'>
+        <img class='door' onclick='mmph()' src='greenglassdoor.png'>
+        <img class='door' onclick='mmph()' src='greenwooddoor.png'>
+        <img class='door' onclick='mmph()' src='orangedoor.png'>
+        <img class='door' onclick='mmph()' src='orangeglassdoor.png'>
+        <img class='door' onclick='mmph()' src='orangewooddoor.png'>
+        <img class='door' onclick='mmph()' src='pinkdoor.png'>
+        <img class='door' onclick='mmph()' src='pinkglassdoor.png'>
+        <img class='door' onclick='mmph()' src='pinkwooddoor.png'>
+        <img class='door' onclick='mmph()' src='purpledoor.png'>
+        <img class='door' onclick='mmph()' src='purpleglassdoor.png'>
+        <img class='door' onclick='mmph()' src='purplewooddoor.png'>
+        <img class='door' onclick='mmph()' src='reddoor.png'>
+        <img class='door' onclick='mmph()' src='redglassdoor.png'>
+        <img class='door' onclick='mmph()' src='redwooddoor.png'>
+        <img class='door' onclick='mmph()' src='tealdoor.png'>
+        <img class='door' onclick='mmph()' src='tealglassdoor.png'>
+        <img class='door' onclick='mmph()' src='whitedoor.png'>
+        <img class='door' onclick='mmph()' src='whiteglassdoor.png'>
+    </div>
+    <div id='wall'>
+    </div>
+
+    <audio id='mmph'>
+        <source src='mmph.mp3' type='audio/mpeg'>
+        <source src='mmph.ogg' type='audio/ogg'>
+    </audio>
+
+    <script src='https://code.jquery.com/jquery-1.12.0.min.js' type='text/javascript'></script>
+    <script>
+        function mmph() {
+            document.getElementById('mmph').pause();
+            document.getElementById('mmph').currentTime = 0;
+            document.getElementById('mmph').play();
+        }
+
+        function shuffle(arr) {
+            var shuf = Array();
+            while (arr.length) {
+                shuf.push(arr.splice(Math.floor(Math.random() * arr.length), 1)[0]);
+            }
+            return shuf;
+        }
+
+        $(document).ready(function() {
+            $('#wall').append(shuffle($('#secretdoors').children().clone()));
+            $(window).scroll(function() {
+                if ($(window).scrollTop() + screen.height > $(document).height() - 300) {
+                    $('#wall').append(shuffle($('#secretdoors').children().clone()));
+                }
+            });
+        });
+    </script>
+</body>
+</html>
