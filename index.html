@@ -90,7 +90,7 @@
         $(document).ready(function() {
             $('#wall').append(shuffle($('#inventory').children().clone()));
             $(window).scroll(function() {
-                if ($(window).scrollTop() + screen.height > $(document).height() - (screen.height * 2)) {
+                if ($(window).scrollTop() + screen.height > $(document).height() - (screen.height * 3)) {
                     $('#wall').append(shuffle($('#inventory').children().clone()));
                 }
             });
