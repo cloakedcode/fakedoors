@@ -11,7 +11,6 @@
         }
 
         .door {
-            width: 300px;
             height: 470px;
             margin: auto;
             position: relative;
@@ -30,8 +29,6 @@
         }
 
         @media (min-width: 500px) {
-            .door {
-            }
         }
     */
     </style>
@@ -93,13 +90,10 @@
         $(document).ready(function() {
             $('#wall').append(shuffle($('#inventory').children().clone()));
             $(window).scroll(function() {
-                if ($(window).scrollTop() + screen.height > $(document).height() - 600) {
+                if ($(window).scrollTop() + screen.height > $(document).height() - (screen.height * 2)) {
                     $('#wall').append(shuffle($('#inventory').children().clone()));
                 }
             });
-
-            alert(screen.height);
-            alert(screen.width);
         });
     </script>
     <script>
