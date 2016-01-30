@@ -21,7 +21,7 @@
             border-bottom: 4px solid #000;
         }
 
-        #secretdoors {
+        #inventory {
             display: none;
         }
 
@@ -35,7 +35,7 @@
 </head>
 
 <body>
-    <div id='secretdoors'>
+    <div id='inventory'>
         <img class='door' onclick='mmph()' src='bluedoor.png'>
         <img class='door' onclick='mmph()' src='bluewooddoor.png'>
         <img class='door' onclick='mmph()' src='browndoor.png'>
@@ -88,10 +88,10 @@
         }
 
         $(document).ready(function() {
-            $('#wall').append(shuffle($('#secretdoors').children().clone()));
+            $('#wall').append(shuffle($('#inventory').children().clone()));
             $(window).scroll(function() {
                 if ($(window).scrollTop() + screen.height > $(document).height() - 300) {
-                    $('#wall').append(shuffle($('#secretdoors').children().clone()));
+                    $('#wall').append(shuffle($('#inventory').children().clone()));
                 }
             });
         });
